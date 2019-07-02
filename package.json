@@ -1,7 +1,7 @@
 {
-  "name": "rest-react-js",
-  "version": "0.1.1",
-  "description": "rest-react-js",
+  "name": "restfullql",
+  "version": "1.0.3",
+  "description": "restfullql",
   "author": "Sajjad Mohammadi Nejad",
   "user": "survivejs",
   "scripts": {

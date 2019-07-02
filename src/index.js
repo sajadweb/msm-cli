@@ -1,5 +1,7 @@
 // this should be the entry point to your library
 module.exports = {
-  rest: require('./Rest').default
+  Rest: require('./Rest').default,
+  Get: require('./Get').default,
+  Demo: require('./demo').default
 };
 
