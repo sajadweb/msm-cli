@@ -1,4 +1,4 @@
-# Rest Cli
+# Microservice Maker Cli
 ## active
  1. nodejs
  2. laravel
@@ -10,12 +10,12 @@
 Use the package manager npm to install.
 
 ```bash
-npm i -g restfullql
+npm i -g msm-cli
 ```
 
 ## using cli
 #### Step 1
 Enter your project folder and run the following command
 ```bash
- rest
+ msm
 ```
