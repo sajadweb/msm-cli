@@ -6,7 +6,7 @@ import * as ${name.fUC()}Model from '../model/${name}.model';
 
 const  ${name.fUC()}Repository = new (class ${name.fUC()}Repository {
 constructor() {
-  this.model = ${name.fUC()}Model;
+  this.${name.fUC()}Model = ${name.fUC()}Model;
 }
 async index() {
     try {
