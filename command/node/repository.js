@@ -1,7 +1,7 @@
 const tools = require("./tools");
 const init = (name) => {
   return `
-import * as ${name.fUC()}Model from '../model/${name.fUC()}.model';
+import * as ${name.fUC()}Model from '../model/${name}.model';
 
 
 const  ${name.fUC()}Repository = new (class ${name.fUC()}Repository {
@@ -41,7 +41,7 @@ async destroy(find) {
 }
 })();
 
-export default ${name.fUC()}Ctrl;
+export default ${name.fUC()}Repository;
 `;
 };
 
