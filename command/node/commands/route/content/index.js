@@ -1,0 +1,35 @@
+const useContext = ({ SERVICE_DIR, service, name }) => {
+  return `import express from 'express';
+import ${name}Controller from '../controller/${name}.controller';
+import ${name}Validation from '../request/${name}.validation';
+const ${name}Router = express.Router();
+
+// Get ${name.fUC()}s
+${name}Router.get('/', ${name}Validation.get${name.fUC()}, ${name}Controller.get${name.fUC()});
+
+// Get ${name.fUC()}
+${name}Router.get('/${name}/:${name}Id', ${name}Validation.get${name.fUC()},${name}Controller.get${name.fUC()});
+
+// Insert ${name.fUC()}
+${name}Router.post('/${name}', ${name}Validation.insert${name.fUC()},${name}Controller.insert${name.fUC()});
+
+// Update ${name.fUC()}
+${name}Router.put('/${name}/:${name}Id', ${name}Validation.update${name.fUC()}, ${name}Controller.update${name.fUC()});
+
+// Delete ${name.fUC()}
+${name}Router.delete('/${name}/:${name}Id', ${name}Validation.delete${name.fUC()}, ${name}Controller.destroy${name.fUC()});
+
+export default ${name}Router;`;
+};
+const setContext = async ({ SERVICE_DIR, storeg, micro, name }) => {
+  storeg.directoryUpdateOrNew(`${SERVICE_DIR}/${micro}/routes`);
+  await storeg.write(
+    `${SERVICE_DIR}/${micro}/routes/${name}.route.js`,
+    useContext({ SERVICE_DIR, service: micro, name }),
+    true
+  );
+};
+module.exports = {
+  useContext,
+  setContext,
+};
