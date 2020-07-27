@@ -50,7 +50,7 @@ const init = async (
 
 module.exports = {
   run: async (props, node) => {
-    props.ilog("route");
+    props.ilog("MSM Route");
     await init(props, node);
   },
 };

@@ -50,7 +50,7 @@ const init = async (
 
 module.exports = {
   run: async (props, node) => {
-    props.ilog("repository");
+    props.ilog("MSM Repository");
     await init(props, node);
   },
 };
