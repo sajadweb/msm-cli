@@ -1,5 +1,4 @@
-const tools = require("./tools");
-const init = (name) => {
+const useContext = ({ SERVICE_DIR, service, name }) => {
   return `import mongoose, { Schema } from 'mongoose';
 const ${name}Schema = new Schema({
   deletedAt:{  date: {type:Date} , actor:{ type: Schema.Types.ObjectId , ref:'contact'}   },
@@ -9,14 +8,17 @@ const ${name}Schema = new Schema({
 
 const ${name}Model = mongoose.model('${name.c2snake()}', ${name}Schema);
 export default ${name}Model;
-    `;
+`;
 };
-
+const setContext = async ({ SERVICE_DIR, storeg, micro, name }) => {
+  storeg.directoryUpdateOrNew(`${SERVICE_DIR}/${micro}/model`);
+  await storeg.write(
+    `${SERVICE_DIR}/${micro}/model/${name}.model.js`,
+    useContext({ SERVICE_DIR, service: micro, name }),
+    true
+  );
+};
 module.exports = {
-  init,
-  run: async ({ ilog, env, data, services, storeg, spinner }, node) => {
-    ilog("Init Model");
-    const make = "model";
-    tools.run({ ilog, env, data, services, storeg, spinner, node, make, init });
-  },
+  useContext,
+  setContext,
 };

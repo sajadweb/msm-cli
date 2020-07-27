@@ -1,12 +1,8 @@
-const tools = require("./tools");
-const init = (name) => {
-  return `
-import * as ${name.fUC()}Model from '../model/${name}.model';
+import * as BlogModel from '../model/blog.model';
 
-
-const  ${name.fUC()}Repository = new (class ${name.fUC()}Repository {
+const  BlogRepository = new (class BlogRepository {
 constructor() {
-  this.model = ${name.fUC()}Model;
+  this.model = BlogModel;
 }
 async index() {
     try {
@@ -41,15 +37,4 @@ async destroy(find) {
 }
 })();
 
-export default ${name.fUC()}Repository;
-`;
-};
-
-module.exports = {
-  init,
-  run: async ({ ilog, env, data, services, storeg, spinner }, node) => {
-    ilog("Init Repository");
-    const make = "repository";
-    tools.run({ ilog, env, data, services, storeg, spinner, node, make, init });
-  },
-};
+export default BlogRepository;
