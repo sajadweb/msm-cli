@@ -26,7 +26,7 @@ const init = async ({ ilog, env, data, services, storeg, spinner }, node) => {
 
   //docz
   await storeg.write(
-    `${dir}/${component}/${component.fUC()}.mdx`,
+    `${dir}/${component}/${component.fUC()}.md`,
     mdx.init(component)
   );
   // provider
