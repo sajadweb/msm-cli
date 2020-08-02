@@ -17,13 +17,13 @@ ${name.fUC()}.propTypes = {
 }`;
 };
 const initui = (name) => {
-  return `import React,{useContext} from 'react'
+  return `import React, {useContext} from 'react'
 import PropTypes from 'prop-types'
 import ${name.fUC()}Context from './../context'
 import './style.less';
 
 export default function ${name.fUC()}Ui() {
-  conat {name}= useContext(${name.fUC()}Context);
+  const {name} = useContext(${name.fUC()}Context);
   return (
       <div className="${name}">
           {name}
