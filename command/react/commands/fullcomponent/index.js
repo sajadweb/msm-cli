@@ -18,33 +18,34 @@ const init = async ({ ilog, env, data, services, storeg, spinner }, node) => {
   });
   const component = micro.component.toLowerCase();
   const dir = `./src/${env.REACT_DIR}`;
-  storeg.directoryUpdateOrNew(`${dir}/${component}`);
+
+  storeg.directoryUpdateOrNew(`${dir}/${component.fUC()}`);
 
   spinner.load();
   // component
-  await storeg.write(`${dir}/${component}/index.js`, fun.init(component));
+  await storeg.write(`${dir}/${component.fUC()}/index.js`, fun.init(component));
 
   //docz
   await storeg.write(
-    `${dir}/${component}/${component.fUC()}.md`,
+    `${dir}/${component.fUC()}/${component.fUC()}.md`,
     mdx.init(component)
   );
   // provider
-  storeg.directoryUpdateOrNew(`${dir}/${component}/context`);
+  storeg.directoryUpdateOrNew(`${dir}/${component.fUC()}/context`);
   await storeg.write(
-    `${dir}/${component}/context/index.js`,
+    `${dir}/${component.fUC()}/context/index.js`,
     provider.init(component)
   );
 
   // ui
-  storeg.directoryUpdateOrNew(`${dir}/${component}/components`);
+  storeg.directoryUpdateOrNew(`${dir}/${component.fUC()}/components`);
   await storeg.write(
-    `${dir}/${component}/components/${component}Ui.js`,
+    `${dir}/${component.fUC()}/components/${component}Ui.js`,
     fun.initui(component)
   );
   // less
   await storeg.write(
-    `${dir}/${component}/components/style.less`,
+    `${dir}/${component.fUC()}/components/style.less`,
     less.init(component)
   );
   spinner.finish();

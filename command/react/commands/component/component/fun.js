@@ -27,7 +27,7 @@ import ${name.fUC()}Context from './../context'
 import './${style}.less';
 
 export default function ${name.fUC()}Ui() {
-  const {name} = useContext(${name.fUC()}Context);
+  conat {name}= useContext(${name.fUC()}Context);
   return (
       <div className="${name}">
           {name}

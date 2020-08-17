@@ -16,14 +16,7 @@ Display the ${name.fUC()} of an operation flow.
 
 <Playground>
     <${name.fUC()} />
-</Playground>
-
-
-## Examples
-\`\`\`js
-<${name.fUC()} />
-\`\`\`
-`;
+</Playground>`;
 };
 
 module.exports = {
